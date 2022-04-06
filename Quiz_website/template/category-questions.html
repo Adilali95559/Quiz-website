@@ -1,0 +1,40 @@
+{%extends 'base.html' %}
+
+{% block tittle %} {{category.tittle}} Questions {% endblock tittle %}
+{% block body %}
+<h3 class="my-2">Category : <span class="text-muted"> {{category.tittle}} Questions</span></h3>
+<form method="post" action="{% url 'submit_answer' category.id question.id %}">
+    {% csrf_token %}
+ <div class="card my-4 bordered-dark shadow">
+    <h5 class="card-header bordered-dark">{{question.question}}</h5>
+    <div class="card-body">
+        <table class="table table-striped">
+            <tr>
+                <td><input required id="option_1" value="{{question.opt_1}}" name="answer" type="radio" ></td>
+                <th><label for="option_1">{{question.opt_1}}</label></th>
+
+            </tr>
+            <tr>
+                <td><input required id="option_2"  value="{{question.opt_2}}" name="answer" type="radio"></td>
+                <th><label for="option_2">{{question.opt_2}}</label></th>
+            </tr>
+            <tr>
+                <td><input required id="option_3"  value="{{question.opt_3}}" name="answer" type="radio"></td>
+                <th><label for="option_3">{{question.opt_3}}</label></th>
+
+            </tr>
+            <tr>
+                <td><input required id="option_4"  value="{{question.opt_4}}" name="answer" type="radio"></td>
+                <th><label for="option_4">{{question.opt_4}}</label></th>
+
+            </tr>
+        </table>
+    </div>
+    <div class="card-footer">
+        <input type="submit" name="submit" value="Next" class="btn btn-primary submitBtn"/>
+    </div>
+</form>
+</div>
+
+
+{% endblock body %}
