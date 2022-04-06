@@ -1,0 +1,43 @@
+{%extends 'base.html' %}
+
+{% block tittle %}{{category.tittle}} Result  {% endblock tittle %}
+{% block body %}
+ <h4 class="my-4">Result Detail</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Total Right Answer</th>
+        <td>{{rigthAns}}</td>
+    </tr>
+</table>
+
+
+<h4 class="my-4">Result</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Question</th>
+            <th>Right Answer</th>
+            <th>Submitted Answer</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        {% for row in result %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.question}}</td>
+            <td>{{row.question.right_opt}}</td>
+            {% if row.question.right_opt == row.right_answer %}
+            <td class="bg-succes text-black">{{row.right_answer}}</td>
+            {% else %}
+            <td class="bg-danger text-white">{{row.right_answer}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock body %}

@@ -1,0 +1,51 @@
+{%extends 'base.html' %}
+
+{% block tittle %} Contact {% endblock tittle %}
+
+{% block body %} <div class="container-fluid px-0">
+    <img src="/static/img/cont.jpg" class="d-block w-100" alt="...">
+
+</div>
+
+
+<div class="container">
+    <h1 class="text-center" style="  position: absolute;   left: 56px;      top: 491px;">Contact Us </h1>
+</div>
+
+
+<div class="container" style="position: absolute; top: 570px; left: 122px;">
+<form method="post" action="/contact" >
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name" class="form-label">Name</label>s</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name"
+                style="width:52%;">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" style="width:52%;">
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="form-label">Contect No.</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone no." style="width:52%;">
+        </div>
+
+        <div class="form-group">
+            <label for="desc" class="form-label">Tell me about what you want to contect for..</label>
+            <textarea class="form-control" id="desc" rows="3" style="width:52%;" name="desc"></textarea>
+            
+
+    <footer class="container" style="position: absolute; top: 415px; left: -3px;">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>© 2022 Project · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+</div>
+
+
+<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+</div>
+{% endblock body %}
